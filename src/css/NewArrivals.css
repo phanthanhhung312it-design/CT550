@@ -1,0 +1,68 @@
+.new-arrivals-page {
+  padding: 22px;
+}
+
+.new-arrivals-heading {
+  margin-bottom: 22px;
+}
+
+.new-arrivals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.new-arrivals-card-link {
+  color: inherit;
+}
+
+.new-arrivals-card {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 22px;
+  border: 1px solid rgba(58, 39, 18, 0.1);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.new-arrivals-image {
+  display: grid;
+  place-items: center;
+  min-height: 220px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(190, 94, 40, 0.15), rgba(39, 75, 73, 0.11));
+}
+
+.new-arrivals-image-content {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.new-arrivals-body {
+  display: grid;
+  gap: 8px;
+}
+
+.new-arrivals-body h3,
+.new-arrivals-body p {
+  margin: 0;
+}
+
+@media (max-width: 960px) {
+  .new-arrivals-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .new-arrivals-page {
+    padding: 18px;
+  }
+
+  .new-arrivals-grid {
+    grid-template-columns: 1fr;
+  }
+}

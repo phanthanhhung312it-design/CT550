@@ -1,0 +1,15 @@
+name,category,players,age,play_time,price,description,difficulty,tags
+Catan,Chiến lược,3-4,10+,45,890000,Chiếm đất và giao thương tài nguyên,Trung bình,chiến-thuật
+Ticket to Ride,Gia đình,2-5,8+,45,760000,Xây dựng tuyến đường và hoàn thành mục tiêu,Dễ,gia-dinh
+Azul,Logic,2-4,8+,30,650000,Sắp xếp gạch màu và ghi điểm,Dễ,logic
+Dixit,Sáng tạo,3-6,8+,30,720000,Tranh ảnh và đoán ý tưởng,Dễ,sáng-tạo
+Splendor,Kinh tế,2-4,10+,30,840000,Thu thập đá quý và mở rộng thương hiệu,Trung bình,kinh-te
+Pandemic,Hợp tác,2-4,13+,45,920000,Ngăn dịch bệnh lan ra trên thế giới,Trung bình,hợp-tác
+Mysterium,Suy luận,2-7,10+,45,950000,Giải mã manh mối và suy luận,Trung bình,suy-luan
+Sushi Go!,Party,2-5,6+,15,350000,Thẻ nhanh và vui nhộn,Dễ,party
+Carcassonne,Chiến lược,2-5,7+,45,690000,Xây dựng lãnh thổ bằng các mảnh bản đồ,Trung bình,chiến-thuật
+7 Wonders,Chiến lược,3-7,10+,45,980000,Phát triển nền văn minh cổ đại,Trung bình,chiến-thuật
+Wingspan,Gia đình,1-5,10+,75,1090000,Xây dựng hệ sinh thái chim,Trung bình,gia-dinh
+Werewolf,Party,7-75,13+,30,420000,Trò chơi thử thách và suy luận,Trung bình,party
+Deception: Murder in Hong Kong,Suy luận,4-12,14+,45,890000,Điều tra vụ án với manh mối,Khó,suy-luan
+Chinatown,Kinh tế,3-5,12+,45,760000,Mua bán đất và thương lượng,Trung bình,kinh-te

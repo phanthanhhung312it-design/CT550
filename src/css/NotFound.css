@@ -1,0 +1,6 @@
+.notfound-card {
+  text-align: center;
+  display: grid;
+  gap: 14px;
+  justify-items: center;
+}

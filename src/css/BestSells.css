@@ -1,0 +1,245 @@
+.bestsells-page {
+  padding: 22px;
+}
+
+.bestsells-heading {
+  margin-bottom: 24px;
+}
+
+.bestsells-tools {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.bestsells-tool-item {
+  display: grid;
+  gap: 6px;
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+.bestsells-tool-item input,
+.bestsells-tool-item select {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(58, 39, 18, 0.15);
+  background: #fff;
+  padding: 10px 12px;
+  font-size: 1rem;
+  font: inherit;
+  color: var(--ink);
+}
+
+#bestseller-category,
+#bestseller-price {
+  font-size: 1.02rem;
+  font-weight: 600;
+}
+
+.bestsells-notice {
+  margin: 0 0 14px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(39, 120, 66, 0.12);
+  border: 1px solid rgba(39, 120, 66, 0.18);
+  color: #195a33;
+  font-size: 0.92rem;
+}
+
+.bestsells-empty {
+  margin-bottom: 14px;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px dashed rgba(58, 39, 18, 0.18);
+  background: rgba(255, 255, 255, 0.66);
+}
+
+.bestsells-empty h3,
+.bestsells-empty p {
+  margin: 0;
+}
+
+.bestsells-empty p {
+  margin-top: 8px;
+  color: var(--muted);
+}
+
+.rank-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rank-card {
+  display: grid;
+  grid-template-columns: 72px 120px minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  padding: 18px;
+  border-radius: 22px;
+  border: 1px solid rgba(58, 39, 18, 0.1);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.rank-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-deep));
+  color: #fff;
+  font-weight: 800;
+  text-align: center;
+  gap: 1px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.rank-badge-top1 {
+  background: linear-gradient(135deg, #f7d774, #d8a91d);
+  color: #7a5100;
+  box-shadow: 0 14px 28px rgba(216, 169, 29, 0.28);
+}
+
+.rank-badge-top2 {
+  background: linear-gradient(135deg, #e9edf4, #b8c0ce);
+  color: #505866;
+  box-shadow: 0 14px 28px rgba(120, 130, 145, 0.22);
+}
+
+.rank-crown {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.rank-badge-text {
+  font-size: 0.72rem;
+}
+
+.rank-badge:not(.rank-badge-top1):not(.rank-badge-top2) .rank-crown {
+  display: none;
+}
+
+.rank-icon {
+  display: grid;
+  place-items: center;
+  min-height: 108px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(190, 94, 40, 0.15), rgba(39, 75, 73, 0.11));
+  font-size: 3rem;
+}
+
+.rank-body {
+  min-width: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.rank-sales-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.rank-sales-count {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.rank-stock {
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.rank-stock.in-stock {
+  background: rgba(39, 120, 66, 0.16);
+  color: #195a33;
+}
+
+.rank-stock.out-stock {
+  background: rgba(178, 34, 34, 0.12);
+  color: #862020;
+}
+
+.rank-body h3,
+.rank-body p {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.rank-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: var(--muted);
+}
+
+.rank-link {
+  justify-self: stretch;
+  white-space: nowrap;
+}
+
+.rank-actions {
+  display: grid;
+  gap: 8px;
+  justify-items: end;
+}
+
+.rank-actions .rank-link {
+  width: 100%;
+  text-align: center;
+}
+
+.rank-actions .rank-link:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.rank-rental-disabled {
+  width: 100%;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+  padding: 8px 10px;
+}
+
+@media (max-width: 900px) {
+  .bestsells-tools {
+    grid-template-columns: 1fr;
+  }
+
+  .rank-card {
+    grid-template-columns: 64px 1fr;
+  }
+
+  .rank-actions {
+    justify-self: start;
+    justify-items: stretch;
+  }
+}
+
+@media (max-width: 620px) {
+  .bestsells-page {
+    padding: 18px;
+  }
+
+  .rank-card {
+    grid-template-columns: 1fr;
+  }
+
+  .rank-icon {
+    min-height: 88px;
+  }
+
+  .rank-actions {
+    width: 100%;
+  }
+}

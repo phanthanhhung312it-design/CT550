@@ -1,0 +1,340 @@
+.support-page {
+  display: grid;
+  gap: 16px;
+  padding: 24px;
+}
+
+.support-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 20px;
+  border: 1px solid rgba(58, 39, 18, 0.12);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 18px 40px rgba(34, 23, 12, 0.08);
+}
+
+.support-header h2,
+.support-header p,
+.support-panel-title h3,
+.support-thread-header h3,
+.support-thread-header p,
+.support-info-card h3,
+.support-info-card p {
+  margin: 0;
+}
+
+.support-alert {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.support-alert.error {
+  background: rgba(185, 29, 29, 0.08);
+  color: #a61d1d;
+}
+
+.support-alert.success {
+  background: rgba(25, 120, 55, 0.08);
+  color: #1d6d35;
+}
+
+.support-demo-note {
+  margin: 8px 0 0;
+  color: rgba(58, 39, 18, 0.72);
+  font-size: 0.92rem;
+}
+
+.support-messenger {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: 16px;
+  align-items: stretch;
+}
+
+.support-session-list,
+.support-thread {
+  min-height: 72vh;
+  max-height: 72vh;
+  padding: 16px;
+  border: 1px solid rgba(58, 39, 18, 0.12);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 18px 40px rgba(34, 23, 12, 0.08);
+  overflow-y: auto;
+}
+
+.support-panel-title,
+.support-session-topline,
+.support-session-meta,
+.support-thread-header {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.support-session-list {
+  display: grid;
+  gap: 12px;
+}
+
+.support-session-item {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 12px;
+  text-align: left;
+  padding: 12px;
+  border: 1px solid rgba(58, 39, 18, 0.12);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.support-session-item.active {
+  border-color: rgba(193, 95, 38, 0.35);
+  background: rgba(193, 95, 38, 0.08);
+}
+
+.support-session-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  background: linear-gradient(135deg, #c15f26, #111111);
+  color: #fff;
+}
+
+.support-session-body {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.support-session-body p {
+  margin: 0;
+  color: rgba(58, 39, 18, 0.74);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.support-session-status {
+  display: inline-flex;
+  padding: 0.22rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(58, 39, 18, 0.08);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.support-empty-state,
+.support-loading {
+  margin: 0;
+  color: rgba(58, 39, 18, 0.72);
+}
+
+.support-thread {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 12px;
+  overflow: hidden;
+}
+
+.support-thread-body {
+  overflow-y: auto;
+  min-height: 0;
+  display: grid;
+  gap: 12px;
+  padding-right: 6px;
+  align-content: start;
+}
+
+.support-message {
+  display: grid;
+}
+
+.support-message.is-user {
+  justify-items: end;
+}
+
+.support-message.is-employee,
+.support-message.is-bot {
+  justify-items: start;
+}
+
+.support-message-bubble {
+  max-width: 78%;
+  padding: 12px 14px;
+  border-radius: 18px;
+  display: grid;
+  gap: 6px;
+  background: rgba(247, 241, 233, 0.92);
+  color: #111;
+}
+
+.support-message.is-user .support-message-bubble {
+  background: linear-gradient(135deg, #1d6d35, #2f8a49);
+  color: #fff;
+}
+
+.support-message.is-employee .support-message-bubble {
+  background: linear-gradient(135deg, #1854aa, #2c7be5);
+  color: #fff;
+}
+
+.support-message.is-bot .support-message-bubble {
+  background: rgba(193, 95, 38, 0.10);
+  color: #111;
+}
+
+.support-message-bubble strong,
+.support-message-bubble p,
+.support-message-bubble span {
+  margin: 0;
+}
+
+.support-message-bubble span {
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
+.support-composer {
+  display: grid;
+  gap: 10px;
+}
+
+.support-composer textarea {
+  width: 100%;
+  min-height: 112px;
+  border: 1px solid rgba(58, 39, 18, 0.14);
+  border-radius: 16px;
+  padding: 0.9rem 1rem;
+  font: inherit;
+  resize: vertical;
+  background: #fff;
+}
+
+.support-composer-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.support-info-card {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+
+.support-tip-list {
+  display: grid;
+  gap: 8px;
+}
+
+.support-tip-list span {
+  padding: 0.7rem 0.85rem;
+  border-radius: 14px;
+  background: rgba(58, 39, 18, 0.06);
+}
+
+.support-links {
+  display: grid;
+  gap: 8px;
+}
+
+.support-recommendations {
+  display: grid;
+  gap: 10px;
+}
+
+.support-resource-links,
+.support-order-card {
+  display: grid;
+  gap: 8px;
+}
+
+.support-resource-links {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.support-resource-link,
+.support-order-card {
+  padding: 0.85rem 0.95rem;
+  border-radius: 18px;
+  border: 1px solid rgba(58, 39, 18, 0.12);
+  background: rgba(255, 255, 255, 0.84);
+  color: #111;
+  text-decoration: none;
+}
+
+.support-resource-link strong,
+.support-order-card strong,
+.support-order-card p {
+  margin: 0;
+}
+
+.support-resource-link span,
+.support-order-card span,
+.support-order-card p {
+  color: rgba(17, 17, 17, 0.72);
+}
+
+.support-product-card {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(58, 39, 18, 0.1);
+  background: rgba(255, 255, 255, 0.84);
+}
+
+.support-product-image {
+  min-height: 92px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(193, 95, 38, 0.14), rgba(31, 93, 85, 0.12));
+}
+
+.support-product-image-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.support-product-body {
+  display: grid;
+  gap: 4px;
+}
+
+.support-product-body strong,
+.support-product-body span {
+  margin: 0;
+}
+
+.support-product-body span {
+  color: rgba(17, 17, 17, 0.72);
+  font-size: 0.92rem;
+}
+
+.support-product-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+@media (max-width: 1180px) {
+  .support-messenger {
+    grid-template-columns: 1fr;
+  }
+}

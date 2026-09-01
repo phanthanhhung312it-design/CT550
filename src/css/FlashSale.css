@@ -1,0 +1,189 @@
+.flash-sale-page {
+  padding: 22px;
+}
+
+.flash-sale-heading {
+  margin-bottom: 22px;
+}
+
+.flash-sale-panels {
+  display: grid;
+  gap: 18px;
+}
+
+.flash-sale-panel {
+  padding: 18px;
+  border-radius: 22px;
+  border: 1px solid rgba(58, 39, 18, 0.1);
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.flash-sale-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.flash-sale-card {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 22px;
+  border: 1px solid rgba(58, 39, 18, 0.1);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.flash-sale-card-link-content {
+  display: grid;
+  gap: 12px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.flash-sale-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.flash-sale-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 64px;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--primary-deep));
+}
+
+.flash-sale-image {
+  display: grid;
+  place-items: center;
+  min-height: 220px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(190, 94, 40, 0.15), rgba(39, 75, 73, 0.11));
+}
+
+.flash-sale-image-content {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.flash-sale-body {
+  display: grid;
+  gap: 8px;
+}
+
+.flash-sale-body h3,
+.flash-sale-body p {
+  margin: 0;
+}
+
+.flash-sale-meta-row,
+.flash-sale-tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.flash-sale-meta-row {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.flash-sale-tag-row span {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(190, 94, 40, 0.1);
+  color: var(--primary-deep);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.flash-sale-price-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.flash-sale-price-stack strong {
+  font-size: 1.08rem;
+}
+
+.flash-sale-price-stack span {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.flash-sale-card-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.flash-sale-action-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0.68rem 0.8rem;
+  border: 1px solid rgba(58, 39, 18, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--primary-deep);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.flash-sale-action-button.active {
+  border-color: var(--primary);
+  background: rgba(190, 94, 40, 0.14);
+}
+
+.flash-sale-action-button.cart {
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--primary-deep));
+}
+
+.flash-sale-action-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.flash-sale-action-icon {
+  font-size: 1rem;
+}
+
+.flash-sale-status-toast {
+  margin-bottom: 14px;
+  padding: 0.8rem 1rem;
+  border-radius: 999px;
+  background: rgba(39, 75, 73, 0.1);
+  color: var(--primary-deep);
+  font-weight: 700;
+}
+
+@media (max-width: 960px) {
+  .flash-sale-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .flash-sale-page {
+    padding: 18px;
+  }
+
+  .flash-sale-grid {
+    grid-template-columns: 1fr;
+  }
+}
