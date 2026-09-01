@@ -1,5 +1,22 @@
 # Getting Started with Create React App
 
+## Full Stack Setup
+
+This project now includes a React frontend and an Express/MongoDB backend.
+
+### Backend
+
+1. `cd server`
+2. Copy `.env.example` to `.env` and set `MONGODB_URI` if needed.
+3. `npm install`
+4. `npm start`
+
+### Frontend
+
+1. From the project root, run `npm install` if needed.
+2. Run `npm start` for the React app.
+3. The frontend calls the API through `/api` during development.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
