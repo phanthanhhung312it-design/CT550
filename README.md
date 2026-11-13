@@ -22,14 +22,14 @@ Trong phạm vi dự án, phần việc triển khai gồm:
 
 ## 4. Technology Stack
 
-| Nhóm | Công nghệ |
-|---|---|
-| Frontend | React, React Router, Vite 6 |
-| Backend | Node.js 22, Express 5, Mongoose |
-| Database | MongoDB 7 |
-| AI/ML | Python 3, tiền xử lý CSV, KNN tự cài đặt |
-| Testing | Vitest, Testing Library, Node.js Test Runner, Python `unittest` |
-| DevOps | Docker, Docker Compose, Nginx, GitHub Actions, GHCR |
+| Nhóm     | Công nghệ                                                       |
+| -------- | --------------------------------------------------------------- |
+| Frontend | React, React Router, Vite 6                                     |
+| Backend  | Node.js 22, Express 5, Mongoose                                 |
+| Database | MongoDB 7                                                       |
+| AI/ML    | Python 3, tiền xử lý CSV, KNN tự cài đặt                        |
+| Testing  | Vitest, Testing Library, Node.js Test Runner, Python `unittest` |
+| DevOps   | Docker, Docker Compose, Nginx, GitHub Actions, GHCR             |
 
 ## 5. System Architecture
 
@@ -122,6 +122,7 @@ Backend cần MongoDB local và cấu hình `server/.env` (tham khảo `server/.
 Ảnh hiện có trong repository là ảnh BoardGame/logo, chưa có ảnh chụp màn hình website, trang quản trị hoặc chatbot. Có thể chạy theo hướng dẫn ở trên để xem demo local tại http://localhost:8080 (Docker) hoặc http://localhost:5173 (Vite development).
 
 ## 15. Project Information
+
 - **Tên người thực hiện:** Phan Thanh Hưng.
 - **MSSV:** B2205874.
 - **Dự án:** CT550 – BoardGame Nexus.
