@@ -122,8 +122,9 @@ Backend cần MongoDB local và cấu hình `server/.env` (tham khảo `server/.
 Ảnh hiện có trong repository là ảnh BoardGame/logo, chưa có ảnh chụp màn hình website, trang quản trị hoặc chatbot. Có thể chạy theo hướng dẫn ở trên để xem demo local tại http://localhost:8080 (Docker) hoặc http://localhost:5173 (Vite development).
 
 ## 15. Project Information
-
+- **Tên người thực hiện:** Phan Thanh Hưng.
+- **MSSV:** B2205874.
 - **Dự án:** CT550 – BoardGame Nexus.
 - **Vai trò:** phát triển full-stack, tích hợp AI và thiết lập quy trình đóng gói/CI.
 - **Thời gian:** chưa được ghi trong repository; bổ sung mốc thời gian thực tế khi chốt báo cáo.
-- **GitHub:** [Thanhhung4/CT550](https://github.com/Thanhhung4/CT550).
+- **GitHub:** [phanthanhhung312it/CT550](https://github.com/phanthanhhung312it-design/CT550).
