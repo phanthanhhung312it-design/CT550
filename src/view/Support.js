@@ -4,7 +4,7 @@ import { getAuthUser, isAuthenticated } from './auth';
 import ProductArtwork from './ProductArtwork';
 import '../css/Support.css';
 
-const API_BASE = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000/api';
+const API_BASE = import.meta.env.VITE_API_BASE_URL || '/api';
 const SUPPORT_SESSION_KEY = 'boardgamevn-support-session';
 
 function formatDateTime(value) {

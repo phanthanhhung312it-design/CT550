@@ -6,7 +6,7 @@ import { getAuthUser, isAuthenticated } from './auth';
 import { applyVoucher, normalizeVoucherItem, resolveVoucherErrorMessage } from './voucherUtils';
 import '../css/Checkout.css';
 
-const apiBase = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000/api';
+const apiBase = import.meta.env.VITE_API_BASE_URL || '/api';
 
 function normalizeText(value) {
   return String(value || '')

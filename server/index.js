@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const cors = require('cors');
-const { connectDb } = require('./config/db');
+const { connectDb, isDbConnected } = require('./config/db');
 const apiRouter = require('./routes');
 const accountRouter = require('./routes/account');
 const { recomputeMembershipPoints } = require('./services/membershipService');
@@ -13,6 +13,9 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok', database: isDbConnected() ? 'connected' : 'disconnected' });
+});
 app.use('/api/account', accountRouter);
 app.use('/api', apiRouter);
 

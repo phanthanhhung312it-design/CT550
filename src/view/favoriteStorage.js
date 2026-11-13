@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getAuthToken } from './auth';
 
-const API_BASE = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000/api';
+const API_BASE = import.meta.env.VITE_API_BASE_URL || '/api';
 const FAVORITE_STORAGE_KEY = 'boardgamevn-favorites';
 const FAVORITE_EVENT = 'boardgamevn-favorite-change';
 

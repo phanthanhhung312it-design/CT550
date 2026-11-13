@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getAuthToken, getAuthUser } from './auth';
 
-const API_BASE = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000/api';
+const API_BASE = import.meta.env.VITE_API_BASE_URL || '/api';
 const LEGACY_CART_STORAGE_KEY = 'boardgamevn-cart';
 const CART_STORAGE_PREFIX = 'boardgamevn-cart';
 const CART_EVENT = 'boardgamevn-cart-change';

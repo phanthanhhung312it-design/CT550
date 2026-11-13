@@ -1,5 +1,3 @@
-import { getBlogPreviewText } from './blogUtils';
-
 import { formatBlogDate, getBlogPreviewText } from './blogUtils';
 
 describe('blogUtils', () => {

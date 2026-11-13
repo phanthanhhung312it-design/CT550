@@ -6,7 +6,7 @@ import {
   rentalProducts as fallbackRentalProducts,
 } from './boardgameData';
 
-const apiBase = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000/api';
+const apiBase = import.meta.env.VITE_API_BASE_URL || '/api';
 const EMPTY_ITEMS = [];
 
 function dispatchCollectionRefresh(path) {

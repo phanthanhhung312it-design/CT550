@@ -1,87 +1,102 @@
-# Getting Started with Create React App
+# CT550 – BoardGame Nexus
 
-## Full Stack Setup
+Website bán BoardGame với chatbot hỗ trợ và gợi ý trò chơi bằng KNN. Frontend được xây dựng bằng React và **Vite**; backend dùng Express/Node.js, MongoDB và Python cho chatbot, gợi ý trò chơi.
 
-This project now includes a React frontend and an Express/MongoDB backend.
+## Công nghệ
 
-### Backend
+- Frontend: React, Vite 6, React Router, Vitest.
+- Backend: Node.js 22, Express, MongoDB/Mongoose.
+- Gợi ý và chatbot: Python 3.
+- Đóng gói: Docker, Docker Compose, Nginx.
+- CI/CD: GitHub Actions; các Docker image được publish lên GitHub Container Registry (GHCR).
 
-1. `cd server`
-2. Copy `.env.example` to `.env` and set `MONGODB_URI` if needed.
-3. `npm install`
-4. `npm start`
+## Chạy local để phát triển
 
-### Frontend
+### Yêu cầu
 
-1. From the project root, run `npm install` if needed.
-2. Run `npm start` for the React app.
-3. The frontend calls the API through `/api` during development.
+- Node.js 22 trở lên và npm.
+- Python 3.
+- MongoDB đang chạy cục bộ (cần thiết cho các tính năng lưu và truy vấn dữ liệu).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Cài đặt và khởi chạy
 
-## Available Scripts
+Từ thư mục gốc dự án, cài dependencies:
 
-In the project directory, you can run:
+```sh
+npm ci
+npm ci --prefix server
+```
 
-### `npm start`
+Khởi chạy backend (mặc định cổng `5000`):
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```sh
+npm run server
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Trong terminal khác, chạy frontend bằng Vite (mặc định cổng `5173`):
 
-### `npm test`
+```sh
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Mở http://localhost:5173. Vite proxy các request `/api` tới `http://localhost:5000`. Có thể đặt `VITE_DEV_API_TARGET` để đổi địa chỉ proxy. `VITE_API_BASE_URL` là địa chỉ API được đóng gói vào frontend lúc build; mặc định là `/api`.
 
-### `npm run build`
+Backend đọc cấu hình từ `server/.env`. Có thể tham khảo `server/.env.example`; ví dụ MongoDB local dùng `MONGODB_URI=mongodb://127.0.0.1:27017/boardgamevn`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Docker
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Chạy toàn bộ ứng dụng với Docker Compose (khuyến nghị)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Cần cài Docker Engine/Desktop và Docker Compose plugin. Từ thư mục gốc, tạo file `.env` từ mẫu `.env.example`, rồi thay `JWT_SECRET` bằng một giá trị riêng, đủ mạnh. Ví dụ PowerShell:
 
-### `npm run eject`
+```powershell
+Copy-Item .env.example .env
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Khởi chạy cả MongoDB, backend và frontend:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```sh
+docker compose up --build
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Website: http://localhost:8080
+- Backend health check: http://localhost:5000/health
+- MongoDB: chỉ truy cập nội bộ trong network Compose; dữ liệu được lưu bền vững ở volume `mongodb_data`.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Chạy nền bằng `docker compose up --build -d`. Xem log với `docker compose logs -f`; dừng các container bằng `docker compose down`. Lệnh `docker compose down -v` cũng xóa volume MongoDB và toàn bộ dữ liệu đã lưu.
 
-## Learn More
+Có thể đổi cổng publish trong `.env` bằng `WEB_PORT` (mặc định `8080`) và `API_PORT` (mặc định `5000`). Không dùng secret mặc định hoặc secret dùng cho phát triển ở môi trường production. Chatbot Python được đóng gói cùng backend; Node gọi Python bằng `python3` trong container.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Dockerfile
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [Dockerfile](Dockerfile) build frontend nhiều giai đoạn: cài dependencies, chạy `npm run build` bằng Vite, sau đó phục vụ thư mục `dist/` bằng Nginx. Nginx fallback về `index.html` cho các route của SPA và chuyển tiếp `/api` tới backend.
+- [server/Dockerfile](server/Dockerfile) cài dependencies production của Node.js và Python, sau đó chạy Express trên cổng `5000`. Image này cần build với thư mục gốc dự án làm build context vì nó cũng copy mã nguồn trong `py/`.
+- [docker-compose.yml](docker-compose.yml) kết nối frontend, backend và MongoDB; backend đợi MongoDB healthy trước khi khởi chạy, còn frontend sử dụng backend làm upstream API.
 
-### Code Splitting
+Có thể build từng image từ thư mục gốc:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```sh
+docker build -f Dockerfile -t boardgame-frontend .
+docker build -f server/Dockerfile -t boardgame-backend .
+```
 
-### Analyzing the Bundle Size
+## Kiểm thử và build
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```sh
+npm run test:ci
+npm run build
+npm test --prefix server
+python -m unittest discover -s py -p "test_*.py"
+```
 
-### Making a Progressive Web App
+`npm run build` tạo bản frontend production trong `dist/`. Vite cũng được dùng cho development server và Vitest; dự án không còn dùng Create React App.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## CI/CD với GitHub Actions
 
-### Advanced Configuration
+Workflow tại [.github/workflows/ci-cd.yml](.github/workflows/ci-cd.yml) chạy trên pull request và push vào `main` hoặc `master`:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. Cài Node.js 22 và chạy test frontend (`npm run test:ci`), sau đó build Vite (`npm run build`).
+2. Cài Node.js 22 và Python 3.12, chạy test backend (`npm test`) và test Python (`unittest`).
+3. Nếu các bước kiểm tra thành công trên push vào `main`, build và publish image frontend/backend lên GHCR với tag `latest` và tag commit SHA.
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+CI dùng `GITHUB_TOKEN` với quyền `packages: write` để publish image. Workflow hiện **không tự triển khai qua SSH lên máy chủ**; muốn tự động deploy cần bổ sung cấu hình môi trường và secrets triển khai phù hợp. Khi triển khai thủ công, nên dùng image theo commit SHA để xác định chính xác phiên bản.
